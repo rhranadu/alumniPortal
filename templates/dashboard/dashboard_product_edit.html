@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% static 'css/dashboard.css' %}
+{% block hero %}
+
+{% endblock hero %}
+
+{% block content  %}
+
+<div class="content-wrapper" style="margin-top: 50px">
+    <section class="content-header">
+        <div class="container-fluid">
+<div class="card">
+
+<div class="card-body">
+    <form method='post' enctype="multipart/form-data">
+        {% csrf_token %}
+      
+          <legend>Product Add</legend>
+          <div class="mb-3">
+            <label for="product_name" class="form-label">Product Name</label>
+            <input type="text" id="product_name" value={{products.product_name}} name="product_name" class="form-control" placeholder="Product Name">
+          </div>
+          <div class="mb-3">
+            <label for="product_category" class="form-label">Product category</label>
+            <input type="text" id="product_category" value={{products.product_category}} name="product_category" class="form-control" placeholder="Product category">
+          </div>
+          <div class="mb-3">
+            <label for="product_subcategory" class="form-label">Product subcategory</label>
+            <input type="text" id="product_subcategory" value={{products.product_subcategory}} name="product_subcategory" class="form-control" placeholder="Product subcategory">
+          </div>
+          <div class="mb-3">
+            <label for="product_price" class="form-label">Product price</label>
+            <input type="number" id="product_price" value={{products.product_price}} name="product_price" class="form-control" placeholder="Product price">
+          </div>
+          <div class="mb-3">
+            <label for="product_desc" class="form-label">Product desc</label>
+            <input type="text" id="product_desc" value={{products.product_desc}} name="product_desc" class="form-control" placeholder="Product desc">
+          </div>
+          <div class="mb-3">
+            <label for="product_desc" class="form-label">Product Image</label>
+            <input type="file" id="product_image"  value={{products.product_image}} name="product_image" class="form-control">
+          </div>
+          <input type="hidden" name='product_id' value = "{{products.id}}" /> 
+          <button type="submit" class="btn btn-primary">Update</button>
+    
+      </form>
+</div>
+</div>
+        </div>
+    </section>
+</div>
+
+{% endblock content %}

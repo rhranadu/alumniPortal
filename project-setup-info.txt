@@ -1,0 +1,4 @@
+Remove (Pipfile.lock) if have  
+pip install pipenv
+pipenv shell
+python manage.py runserver

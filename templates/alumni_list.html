@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Alumni{% endblock title %}
+{% block hero %}
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+{% endblock hero %}
+
+{% block content %} 
+    <h1> Alumni list </h1>
+    <br/>
+    {% if profiles %}
+        {% for profile in profiles %}
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                {% if profile.avatar %}
+                <img src="{{profile.avatar.url}}" 
+                     class="img-fluid rounded-start" alt="Profile picture" style="height:200px;">
+                {% else %}     
+                <img src="{% static 'assets/img/profile/default-profile-photo.jpg' %}" 
+                     class="img-fluid rounded-start" alt="Profile picture"style="height:200px;">
+                {% endif %}
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">{{profile.user.username}}</h5>
+                  <p class="card-text">{{profile.user.email}}</p>
+                  <br/><br/>
+                  <p class="card-text"><small class="text-muted">Last updated {{profile.last_updated}}</small></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br/><br/>
+        {% endfor %}
+    {% endif %}
+{% endblock content %} 
+    <h1> Member list </h1>
+    <br/>
+    {% if profiles %}
+        {% for profile in profiles %}
+            Username: 
+        {% endfor %}
+    {% endif %}
